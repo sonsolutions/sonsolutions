@@ -19,9 +19,9 @@
 
 ---
 
-<div align="center">
-  <img height="180em"
-    src="https://github-readme-stats.vercel.app/api?username=sonsolutions&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&cache_seconds=1800"/>
+<!--<div align="center">
+#  <img height="180em"
+#    src="https://github-readme-stats.vercel.app/api?username=sonsolutions&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&cache_seconds=1800"/>
 
   <img height="180em"
     src="https://github-readme-stats.vercel.app/api/top-langs/?username=sonsolutions&layout=compact&langs_count=8&theme=tokyonight&cache_seconds=1800"/>
@@ -33,9 +33,10 @@
 
 <div align="center">
   <img src="https://streak-stats.demolab.com?user=sonsolutions&theme=tokyonight"/>
-</div>
+</div>-->
 
 ---
+
 
 # 🛠️ Tecnologias & Ferramentas
 
