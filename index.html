@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SON SOLUTIONS — Consultoria em Infraestrutura de TI & Cibersegurança</title>
+  <meta name="description" content="Consultoria especializada em infraestrutura de TI, nuvem híbrida Azure/M365, firewalls Fortinet, hardening de servidores e monitoramento com Wazuh e PRTG.">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Inter"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              cyan: '#00F0FF',
+              accent: '#38BDF8',
+              blue: '#1E60D5',
+              dark: '#07090E',
+              surface: '#0E131F',
+              card: '#111726',
+              border: '#1E293B',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #07090E;
+      color: #E2E8F0;
+    }
+    .subtle-border {
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .subtle-border-hover:hover {
+      border-color: rgba(56, 189, 248, 0.35);
+    }
+  </style>
+</head>
+<body class="font-sans antialiased selection:bg-cyan-400 selection:text-black">
+
+  <!-- TOP STATUS BAR -->
+  <div class="border-b border-white/[0.06] bg-[#07090E] text-[11px] font-mono text-slate-400 py-2.5 px-6">
+    <div class="max-w-6xl mx-auto flex flex-wrap justify-between items-center gap-3">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center gap-2 text-emerald-400 font-medium">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          OPERACIONAL
+        </span>
+        <span class="text-slate-600">/</span>
+        <span class="text-slate-400">Consultoria Técnica Sênior & Suporte Especializado</span>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="sla.html" class="text-slate-400 hover:text-cyan-400 transition flex items-center gap-1.5">
+          <i data-lucide="shield-check" class="w-3.5 h-3.5 text-cyan-400"></i>
+          <span>Matriz de SLA & Continuidade</span>
+          <i data-lucide="arrow-right" class="w-3 h-3 text-slate-500"></i>
+        </a>
+        <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20gostaria%20de%20um%20diagn%C3%B3stico%20de%20infraestrutura%20com%20a%20SON%20SOLUTIONS" target="_blank" class="text-emerald-400 hover:text-emerald-300 transition flex items-center gap-1.5 font-medium">
+          <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
+          <span>WhatsApp Direto</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER / NAVBAR -->
+  <header class="sticky top-0 z-50 bg-[#07090E]/95 backdrop-blur-md border-b border-white/[0.06]">
+    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+      
+      <!-- LOGO OFICIAL TRATADA -->
+      <a href="index.html" class="flex items-center group">
+        <img src="assets/logo_dark.png" alt="SON SOLUTIONS Consultoria de TI" class="h-11 sm:h-12 w-auto object-contain transition duration-200 group-hover:brightness-110">
+      </a>
+
+      <!-- Minimalist Navigation -->
+      <nav class="hidden md:flex items-center space-x-8 text-xs font-medium text-slate-300">
+        <a href="#servicos" class="hover:text-white transition">Serviços</a>
+        <a href="#diferenciais" class="hover:text-white transition">Diferenciais</a>
+        <a href="#simulador" class="hover:text-white transition">Simulador de Projeto</a>
+        <a href="sla.html" class="text-cyan-400 hover:text-cyan-300 transition flex items-center gap-1">
+          <span>SLA & Continuidade</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+        </a>
+      </nav>
+
+      <!-- Action Button -->
+      <div class="hidden sm:flex items-center gap-3">
+        <a href="#simulador" class="px-4 py-2 rounded-lg text-xs font-semibold bg-white text-black hover:bg-slate-200 transition">
+          Iniciar Diagnóstico
+        </a>
+      </div>
+
+      <!-- Mobile Button -->
+      <button id="mobileBtn" class="md:hidden text-slate-400 hover:text-white p-2">
+        <i data-lucide="menu" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobileNav" class="hidden md:hidden border-b border-white/[0.06] bg-[#07090E] px-6 py-4 space-y-3 text-xs">
+      <a href="#servicos" class="block py-1 text-slate-300 hover:text-white">Serviços Especializados</a>
+      <a href="#diferenciais" class="block py-1 text-slate-300 hover:text-white">Diferenciais</a>
+      <a href="#simulador" class="block py-1 text-slate-300 hover:text-white">Simulador de Projeto</a>
+      <a href="sla.html" class="block py-1 text-cyan-400 font-medium">SLA & Continuidade Operacional</a>
+      <a href="#simulador" class="block text-center py-2.5 rounded bg-white text-black font-semibold mt-2">Iniciar Diagnóstico</a>
+    </div>
+  </header>
+
+  <!-- HERO SECTION MINIMALISTA -->
+  <section class="pt-16 pb-20 px-6 border-b border-white/[0.06] relative overflow-hidden">
+    <div class="max-w-6xl mx-auto">
+      
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Text Column -->
+        <div class="lg:col-span-7">
+          
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-white/[0.03] subtle-border text-[11px] font-mono text-cyan-400 mb-6">
+            <span>CONSULTORIA ESPECIALIZADA EM INFRAESTRUTURA & CYBER</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-[1.15] mb-6">
+            Infraestrutura de TI e Cibersegurança para operações que <span class="text-cyan-400">não podem parar</span>.
+          </h1>
+
+          <p class="text-slate-400 text-sm sm:text-base leading-relaxed mb-8 max-w-xl font-normal">
+            Administração, sustentação e evolução de ambientes híbridos. Especialista em <strong>Microsoft Azure & M365</strong>, conectividade segura <strong>Fortinet</strong>, servidores <strong>Windows/Linux</strong>, observabilidade <strong>Wazuh SIEM / PRTG</strong> e contingência <strong>Acronis</strong>.
+          </p>
+
+          <!-- Buttons -->
+          <div class="flex flex-wrap items-center gap-3">
+            <a href="#simulador" class="px-5 py-3 rounded-lg text-xs font-semibold bg-white text-black hover:bg-slate-200 transition flex items-center gap-2">
+              <i data-lucide="calculator" class="w-4 h-4"></i>
+              <span>Montar Escopo de Projeto</span>
+            </a>
+            <a href="sla.html" class="px-5 py-3 rounded-lg text-xs font-semibold bg-white/[0.04] text-slate-200 subtle-border hover:bg-white/[0.08] transition flex items-center gap-2">
+              <i data-lucide="shield-check" class="w-4 h-4 text-cyan-400"></i>
+              <span>Conhecer Níveis de SLA</span>
+            </a>
+          </div>
+
+          <!-- Feature Metrics -->
+          <div class="mt-10 pt-8 border-t border-white/[0.06] grid grid-cols-3 gap-4 font-mono text-xs">
+            <div>
+              <div class="text-white font-bold text-sm">99.9%</div>
+              <div class="text-[11px] text-slate-500 mt-0.5">Uptime Alvo</div>
+            </div>
+            <div>
+              <div class="text-white font-bold text-sm">&lt; 15 min</div>
+              <div class="text-[11px] text-slate-500 mt-0.5">Resposta P1 Crítica</div>
+            </div>
+            <div>
+              <div class="text-white font-bold text-sm">Zero Trust</div>
+              <div class="text-[11px] text-slate-500 mt-0.5">Hardening & CIS</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Visual Column (Generated 3D Asset) -->
+        <div class="lg:col-span-5">
+          <div class="relative rounded-2xl overflow-hidden subtle-border bg-slate-900/60 shadow-2xl group">
+            <img src="assets/hero.jpg" alt="Infraestrutura 3D SON SOLUTIONS" class="w-full h-auto object-cover group-hover:scale-102 transition duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#07090E] via-transparent to-transparent opacity-60 pointer-events-none"></div>
+            <div class="absolute bottom-4 left-4 right-4 p-3 rounded-lg bg-black/70 backdrop-blur border border-white/[0.08] flex items-center justify-between text-[11px] font-mono">
+              <span class="text-slate-300">Ambientes Críticos & Nuvem Segura</span>
+              <span class="text-cyan-400 font-semibold">SON SOLUTIONS</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- STACK DE TECNOLOGIAS -->
+  <section class="py-10 border-b border-white/[0.06] bg-[#0A0E17]/40">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex flex-wrap items-center justify-between gap-6 text-slate-400 font-mono text-xs">
+        <span class="text-slate-500 uppercase tracking-widest text-[10px]">Stack Homologada:</span>
+        <span class="hover:text-white transition">Microsoft Azure</span>
+        <span class="text-slate-700">·</span>
+        <span class="hover:text-white transition">Microsoft 365 / Entra ID</span>
+        <span class="text-slate-700">·</span>
+        <span class="hover:text-white transition">Fortinet FortiGate</span>
+        <span class="text-slate-700">·</span>
+        <span class="hover:text-white transition">Windows Server & Linux</span>
+        <span class="text-slate-700">·</span>
+        <span class="hover:text-white transition">Wazuh SIEM</span>
+        <span class="text-slate-700">·</span>
+        <span class="hover:text-white transition">PRTG Network Monitor</span>
+        <span class="text-slate-700">·</span>
+        <span class="hover:text-white transition">Acronis Cyber Protect</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFERENCIAIS ESTRATÉGICOS -->
+  <section id="diferenciais" class="py-20 px-6 border-b border-white/[0.06]">
+    <div class="max-w-6xl mx-auto">
+      
+      <div class="max-w-2xl mb-14">
+        <span class="text-[11px] font-mono uppercase tracking-widest text-cyan-400">Visão Integrada de Engenharia</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-white mt-2 tracking-tight">
+          O tripé essencial: Cloud, Redes e Cibersegurança.
+        </h2>
+        <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+          Enquanto muitos profissionais atuam isoladamente em apenas um segmento, a SON SOLUTIONS conecta a sustentação de sistemas à proteção do perímetro e à governança em nuvem.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        
+        <div class="p-6 rounded-xl bg-white/[0.02] subtle-border subtle-border-hover transition">
+          <div class="w-9 h-9 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center mb-5">
+            <i data-lucide="cloud" class="w-4 h-4"></i>
+          </div>
+          <h3 class="text-sm font-semibold text-white mb-2">Cloud Híbrida & M365</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">
+            Arquitetura e migração sem impacto para Azure e Microsoft 365, sincronização com Active Directory local (Entra Connect) e políticas de Acesso Condicional com MFA.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-xl bg-white/[0.02] subtle-border subtle-border-hover transition">
+          <div class="w-9 h-9 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-5">
+            <i data-lucide="shield" class="w-4 h-4"></i>
+          </div>
+          <h3 class="text-sm font-semibold text-white mb-2">Perímetro Fortinet & Hardening</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">
+            Túneis VPN IPsec e SSL-VPN, políticas estritas de tráfego, mitigação de ameaças em tempo real e blindagem de servidores Windows e Linux sob referências CIS.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-xl bg-white/[0.02] subtle-border subtle-border-hover transition">
+          <div class="w-9 h-9 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-5">
+            <i data-lucide="activity" class="w-4 h-4"></i>
+          </div>
+          <h3 class="text-sm font-semibold text-white mb-2">Observabilidade & Recuperação</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">
+            Monitoramento preventivo com Wazuh SIEM e PRTG para detecção de anomalias antes que virem incidentes, somado a rotinas de backup e DR 3-2-1 com Acronis.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CATÁLOGO DE SERVIÇOS -->
+  <section id="servicos" class="py-20 px-6 border-b border-white/[0.06]">
+    <div class="max-w-6xl mx-auto">
+      
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+        <div>
+          <span class="text-[11px] font-mono uppercase tracking-widest text-cyan-400">Projetos Pontuais de Alta Relevância</span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-white mt-1 tracking-tight">
+            Serviços Especializados
+          </h2>
+        </div>
+        <p class="text-xs text-slate-400 font-mono">
+          Escopo fechado · Sem contratos engessados · Entrega ágil
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <!-- Item 1 -->
+        <div class="p-6 rounded-xl bg-white/[0.02] subtle-border subtle-border-hover transition flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-red-500/10 text-red-400 border border-red-500/20">Prioridade Alta</span>
+              <i data-lucide="network" class="w-4 h-4 text-slate-400"></i>
+            </div>
+            <h4 class="text-sm font-semibold text-white mb-2">VPN & Firewall Fortinet</h4>
+            <p class="text-xs text-slate-400 mb-4 leading-relaxed">
+              Configuração e troubleshooting de VPN IPsec site-to-site e SSL-VPN client-to-site, políticas de segurança, SD-WAN e controle de tráfego corporativo.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-white/[0.06] flex items-center justify-between text-[11px] font-mono">
+            <span class="text-slate-500">Prazo: 24h a 72h</span>
+            <a href="#simulador" class="text-cyan-400 hover:underline">Selecionar</a>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="p-6 rounded-xl bg-white/[0.02] subtle-border subtle-border-hover transition flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20">Prioridade Alta</span>
+              <i data-lucide="lock" class="w-4 h-4 text-slate-400"></i>
+            </div>
+            <h4 class="text-sm font-semibold text-white mb-2">Hardening Windows Server & AD</h4>
+            <p class="text-xs text-slate-400 mb-4 leading-relaxed">
+              Auditoria de segurança, aplicação de GPOs restritivas, desativação de protocolos legados vulneráveis (NTLMv1/SMBv1) e proteção contra ransomware.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-white/[0.06] flex items-center justify-between text-[11px] font-mono">
+            <span class="text-slate-500">Prazo: 48h a 96h</span>
+            <a href="#simulador" class="text-cyan-400 hover:underline">Selecionar</a>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="p-6 rounded-xl bg-white/[0.02] subtle-border subtle-border-hover transition flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20">Prioridade Alta</span>
+              <i data-lucide="cloud" class="w-4 h-4 text-slate-400"></i>
+            </div>
+            <h4 class="text-sm font-semibold text-white mb-2">Microsoft 365, Azure & Entra ID</h4>
+            <p class="text-xs text-slate-400 mb-4 leading-relaxed">
+              Implementação de Acesso Condicional, MFA compulsório, migração de tenant, caixas de correio Exchange e sincronização híbrida de identidades.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-white/[0.06] flex items-center justify-between text-[11px] font-mono">
+            <span class="text-slate-500">Escopo Customizado</span>
+            <a href="#simulador" class="text-cyan-400 hover:underline">Selecionar</a>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="p-6 rounded-xl bg-white/[0.02] subtle-border subtle-border-hover transition flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Observabilidade</span>
+              <i data-lucide="radar" class="w-4 h-4 text-slate-400"></i>
+            </div>
+            <h4 class="text-sm font-semibold text-white mb-2">Monitoramento Wazuh SIEM & PRTG</h4>
+            <p class="text-xs text-slate-400 mb-4 leading-relaxed">
+              Implantação do agente Wazuh para auditoria de integridade de arquivos (FIM), alertas de ataque e PRTG para visibilidade de tráfego e latência de rede.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-white/[0.06] flex items-center justify-between text-[11px] font-mono">
+            <span class="text-slate-500">Alertas 24/7</span>
+            <a href="#simulador" class="text-cyan-400 hover:underline">Selecionar</a>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="p-6 rounded-xl bg-white/[0.02] subtle-border subtle-border-hover transition flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Continuidade</span>
+              <i data-lucide="database" class="w-4 h-4 text-slate-400"></i>
+            </div>
+            <h4 class="text-sm font-semibold text-white mb-2">Backup & DR com Acronis</h4>
+            <p class="text-xs text-slate-400 mb-4 leading-relaxed">
+              Arquitetura de cópias locais e nuvem à prova de ransomware, testes de restauração bare-metal e plano formal de Disaster Recovery (DRP).
+            </p>
+          </div>
+          <div class="pt-4 border-t border-white/[0.06] flex items-center justify-between text-[11px] font-mono">
+            <span class="text-slate-500">RPO/RTO Garantidos</span>
+            <a href="#simulador" class="text-cyan-400 hover:underline">Selecionar</a>
+          </div>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="p-6 rounded-xl bg-white/[0.02] subtle-border subtle-border-hover transition flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-500/10 text-purple-400 border border-purple-500/20">Consultoria</span>
+              <i data-lucide="file-check" class="w-4 h-4 text-slate-400"></i>
+            </div>
+            <h4 class="text-sm font-semibold text-white mb-2">Diagnóstico Técnico & Troubleshooting</h4>
+            <p class="text-xs text-slate-400 mb-4 leading-relaxed">
+              Análise de causa raiz (RCA) para incidentes complexos de infraestrutura Windows/Linux e elaboração de documentações e procedimentos (POPs).
+            </p>
+          </div>
+          <div class="pt-4 border-t border-white/[0.06] flex items-center justify-between text-[11px] font-mono">
+            <span class="text-slate-500">Laudo Técnico</span>
+            <a href="#simulador" class="text-cyan-400 hover:underline">Selecionar</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SIMULADOR INTERATIVO DE ESCOPO -->
+  <section id="simulador" class="py-20 px-6">
+    <div class="max-w-4xl mx-auto">
+      
+      <div class="text-center max-w-xl mx-auto mb-10">
+        <span class="text-[11px] font-mono uppercase tracking-widest text-cyan-400">Briefing Rápido</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-white mt-1 tracking-tight">
+          Simulador de Escopo de Projeto
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-400 mt-2">
+          Selecione as demandas da sua infraestrutura para gerar automaticamente um briefing objetivo para envio direto no WhatsApp.
+        </p>
+      </div>
+
+      <div class="p-6 sm:p-8 rounded-2xl bg-[#0B0F19] subtle-border shadow-xl">
+        
+        <div class="grid sm:grid-cols-2 gap-3 mb-6">
+          
+          <label class="flex items-start gap-3 p-3.5 rounded-lg bg-white/[0.02] subtle-border hover:border-cyan-500/40 cursor-pointer transition text-xs">
+            <input type="checkbox" name="service" value="VPN IPsec ou SSL-VPN Fortinet" class="mt-0.5 rounded text-blue-600 bg-slate-800 border-slate-700">
+            <div>
+              <span class="font-medium text-white block">VPN IPsec / SSL-VPN Fortinet</span>
+              <span class="text-[11px] text-slate-500">Conexão segura matriz-filial ou home office.</span>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-3 p-3.5 rounded-lg bg-white/[0.02] subtle-border hover:border-cyan-500/40 cursor-pointer transition text-xs">
+            <input type="checkbox" name="service" value="Hardening de Windows Server e Active Directory" class="mt-0.5 rounded text-blue-600 bg-slate-800 border-slate-700">
+            <div>
+              <span class="font-medium text-white block">Hardening Windows Server & AD</span>
+              <span class="text-[11px] text-slate-500">Fechamento de portas e diretivas CIS.</span>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-3 p-3.5 rounded-lg bg-white/[0.02] subtle-border hover:border-cyan-500/40 cursor-pointer transition text-xs">
+            <input type="checkbox" name="service" value="Configuração / Migração Microsoft 365 e Entra ID" class="mt-0.5 rounded text-blue-600 bg-slate-800 border-slate-700">
+            <div>
+              <span class="font-medium text-white block">Microsoft 365 & Entra ID</span>
+              <span class="text-[11px] text-slate-500">Acesso condicional, MFA e caixas de correio.</span>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-3 p-3.5 rounded-lg bg-white/[0.02] subtle-border hover:border-cyan-500/40 cursor-pointer transition text-xs">
+            <input type="checkbox" name="service" value="Implantação de Monitoramento Wazuh SIEM e PRTG" class="mt-0.5 rounded text-blue-600 bg-slate-800 border-slate-700">
+            <div>
+              <span class="font-medium text-white block">Monitoramento Wazuh SIEM & PRTG</span>
+              <span class="text-[11px] text-slate-500">Detecção de intrusão e sensores de rede.</span>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-3 p-3.5 rounded-lg bg-white/[0.02] subtle-border hover:border-cyan-500/40 cursor-pointer transition text-xs">
+            <input type="checkbox" name="service" value="Backup & DR com Acronis Cyber Protect" class="mt-0.5 rounded text-blue-600 bg-slate-800 border-slate-700">
+            <div>
+              <span class="font-medium text-white block">Backup & Disaster Recovery Acronis</span>
+              <span class="text-[11px] text-slate-500">Rotinas 3-2-1 à prova de ransomware.</span>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-3 p-3.5 rounded-lg bg-white/[0.02] subtle-border hover:border-cyan-500/40 cursor-pointer transition text-xs">
+            <input type="checkbox" name="service" value="Troubleshooting e Diagnóstico Técnico de Infraestrutura" class="mt-0.5 rounded text-blue-600 bg-slate-800 border-slate-700">
+            <div>
+              <span class="font-medium text-white block">Troubleshooting & Documentação</span>
+              <span class="text-[11px] text-slate-500">Resolução de falhas graves e laudo técnico.</span>
+            </div>
+          </label>
+
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-3 mb-5">
+          <div>
+            <label class="block text-[11px] font-mono text-slate-400 mb-1">Nome / Empresa</label>
+            <input type="text" id="clientName" placeholder="Ex: Lucas / Empresa XYZ" class="w-full px-3 py-2.5 rounded bg-black/50 subtle-border text-xs text-white focus:outline-none focus:border-cyan-500">
+          </div>
+          <div>
+            <label class="block text-[11px] font-mono text-slate-400 mb-1">Urgência</label>
+            <select id="projectUrgency" class="w-full px-3 py-2.5 rounded bg-black/50 subtle-border text-xs text-white focus:outline-none focus:border-cyan-500">
+              <option value="Imediata (Parada ou Incidente)">Imediata (Parada ou Incidente)</option>
+              <option value="Alta (Próximos 7 dias)" selected>Alta (Próximos 7 dias)</option>
+              <option value="Média (Planejamento)">Média (Planejamento)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="p-3.5 rounded-lg bg-black/70 subtle-border mb-6 font-mono text-xs">
+          <div class="text-[10px] text-slate-500 mb-1">// BRIEFING GERADO:</div>
+          <div id="briefingPreview" class="text-cyan-300">Selecione os serviços desejados acima...</div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <a href="sla.html" class="text-xs text-slate-400 hover:text-cyan-400 flex items-center gap-1.5 transition">
+            <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+            <span>Ver regras e tempos de resposta do SLA</span>
+          </a>
+
+          <button id="sendWhatsappBtn" class="w-full sm:w-auto px-5 py-2.5 rounded-lg text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white transition flex items-center justify-center gap-2">
+            <i data-lucide="message-circle" class="w-4 h-4"></i>
+            <span>Enviar Briefing via WhatsApp</span>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER MINIMALISTA -->
+  <footer class="border-t border-white/[0.06] bg-[#05070B] py-12 px-6 text-xs text-slate-500">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+      
+      <div class="flex items-center gap-3">
+        <img src="assets/logo_dark.png" alt="SON SOLUTIONS" class="h-8 w-auto object-contain">
+      </div>
+
+      <div class="flex items-center gap-6 font-mono text-[11px]">
+        <a href="sla.html" class="text-slate-400 hover:text-cyan-400 transition">SLA & Continuidade</a>
+        <a href="#servicos" class="text-slate-400 hover:text-white transition">Serviços</a>
+        <a href="#simulador" class="text-slate-400 hover:text-white transition">Simulador</a>
+      </div>
+
+      <div class="font-mono text-[11px] text-slate-600">
+        &copy; 2026 SON SOLUTIONS Consultoria de TI. Todos os direitos reservados.
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+
+    // Mobile nav
+    const mobileBtn = document.getElementById('mobileBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    mobileBtn.addEventListener('click', () => {
+      mobileNav.classList.toggle('hidden');
+    });
+
+    // Simulador
+    const checkboxes = document.querySelectorAll('input[name="service"]');
+    const clientNameInput = document.getElementById('clientName');
+    const urgencySelect = document.getElementById('projectUrgency');
+    const preview = document.getElementById('briefingPreview');
+    const whatsappBtn = document.getElementById('sendWhatsappBtn');
+
+    function updatePreview() {
+      const selected = Array.from(checkboxes)
+        .filter(cb => cb.checked)
+        .map(cb => cb.value);
+
+      const name = clientNameInput.value.trim() || 'Cliente';
+      const urgency = urgencySelect.value;
+
+      if (selected.length === 0) {
+        preview.textContent = 'Selecione os serviços desejados acima...';
+        return;
+      }
+
+      let text = `Olá! Meu nome é ${name}. Gostaria de solicitar um diagnóstico de infraestrutura com a SON SOLUTIONS:\n\n`;
+      selected.forEach(item => {
+        text += `• ${item}\n`;
+      });
+      text += `\nUrgência estimada: ${urgency}`;
+      preview.textContent = text;
+    }
+
+    checkboxes.forEach(cb => cb.addEventListener('change', updatePreview));
+    clientNameInput.addEventListener('input', updatePreview);
+    urgencySelect.addEventListener('change', updatePreview);
+
+    whatsappBtn.addEventListener('click', () => {
+      const selected = Array.from(checkboxes).filter(cb => cb.checked);
+      if (selected.length === 0) {
+        alert('Por favor, selecione ao menos um serviço no formulário.');
+        return;
+      }
+      const rawText = preview.textContent;
+      const url = `https://wa.me/?text=${encodeURIComponent(rawText)}`;
+      window.open(url, '_blank');
+    });
+  </script>
+</body>
+</html>

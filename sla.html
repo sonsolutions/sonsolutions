@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SLA & Continuidade Operacional | SON SOLUTIONS</title>
+  <meta name="description" content="Níveis de serviço (SLA), metas de continuidade, RTO, RPO e governança operacional da SON SOLUTIONS.">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#07090E] text-slate-200 font-sans antialiased selection:bg-cyan-500 selection:text-black">
+
+  <!-- NAVBAR MINIMALISTA -->
+  <header class="border-b border-slate-800/60 bg-[#07090E]/90 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center group">
+        <img src="assets/logo_dark.png" alt="SON SOLUTIONSS Consultoria de TI" class="h-10 sm:h-11 w-auto object-contain transition duration-200 group-hover:brightness-110">
+      </a>
+
+      <div class="flex items-center gap-4 text-xs">
+        <a href="index.html" class="px-4 py-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-slate-700 transition flex items-center gap-2">
+          <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+          <span>Voltar ao Início</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SLA -->
+  <main class="max-w-6xl mx-auto px-6 py-16">
+    
+    <div class="max-w-3xl mb-16">
+      <span class="text-xs font-mono font-medium uppercase tracking-widest text-cyan-400">Compromisso Técnico de Entrega</span>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-white mt-3 tracking-tight">
+        Acordo de Nível de Serviço (SLA) & Garantia de Continuidade
+      </h1>
+      <p class="text-slate-400 mt-4 text-base leading-relaxed">
+        A estabilidade de ambientes corporativos depende de metas claras, tempo de resposta previsível e rotinas estruturadas de mitigação de falhas. Abaixo detalhamos a política operacional aplicada aos projetos e sustentações da SON SOLUTIONS.
+      </p>
+    </div>
+
+    <!-- METRICS GRID -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
+      <div class="p-6 rounded-xl bg-slate-900/40 border border-slate-800/80">
+        <div class="text-xs font-mono text-slate-500 uppercase">Tempo de Resposta Crítico</div>
+        <div class="text-2xl font-bold text-cyan-400 mt-2 font-mono">&lt; 15 min</div>
+        <div class="text-xs text-slate-400 mt-1">Acionamento imediato para paradas totais</div>
+      </div>
+      <div class="p-6 rounded-xl bg-slate-900/40 border border-slate-800/80">
+        <div class="text-xs font-mono text-slate-500 uppercase">RPO Alvo (Backup)</div>
+        <div class="text-2xl font-bold text-white mt-2 font-mono">&lt; 1 hora</div>
+        <div class="text-xs text-slate-400 mt-1">Ponto máximo tolerável de perda de dados</div>
+      </div>
+      <div class="p-6 rounded-xl bg-slate-900/40 border border-slate-800/80">
+        <div class="text-xs font-mono text-slate-500 uppercase">RTO Alvo (Restauração)</div>
+        <div class="text-2xl font-bold text-white mt-2 font-mono">&lt; 4 horas</div>
+        <div class="text-xs text-slate-400 mt-1">Tempo de recuperação de serviços críticos</div>
+      </div>
+      <div class="p-6 rounded-xl bg-slate-900/40 border border-slate-800/80">
+        <div class="text-xs font-mono text-slate-500 uppercase">Disponibilidade Alvo</div>
+        <div class="text-2xl font-bold text-emerald-400 mt-2 font-mono">99.9%</div>
+        <div class="text-xs text-slate-400 mt-1">Uptime de serviços monitorados em regime 24/7</div>
+      </div>
+    </div>
+
+    <!-- MATRIZ DE PRIORIDADE / RESPOSTA -->
+    <div class="mb-16">
+      <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+        <i data-lucide="clock" class="w-5 h-5 text-cyan-400"></i>
+        <span>Classificação de Incidentes e Prazos de Resposta</span>
+      </h2>
+
+      <div class="overflow-x-auto border border-slate-800 rounded-xl bg-slate-950/60">
+        <table class="w-full text-left text-xs border-collapse font-mono">
+          <thead>
+            <tr class="border-b border-slate-800 bg-slate-900/70 text-slate-400 uppercase tracking-wider text-[11px]">
+              <th class="py-3.5 px-4 font-semibold">Severidade</th>
+              <th class="py-3.5 px-4 font-semibold">Definição Operacional</th>
+              <th class="py-3.5 px-4 font-semibold">Tempo de Resposta</th>
+              <th class="py-3.5 px-4 font-semibold">Plano de Ação</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800/60 text-slate-300">
+            <tr>
+              <td class="py-4 px-4 font-semibold text-red-400 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-red-400"></span> Severidade 1 (Crítica)
+              </td>
+              <td class="py-4 px-4 font-sans text-xs text-slate-300">
+                Parada total de serviços corporativos (firewall indisponível, Active Directory inoperante, VPN derrubada, falha no host de virtualização).
+              </td>
+              <td class="py-4 px-4 text-cyan-400 font-bold">&lt; 15 a 30 minutos</td>
+              <td class="py-4 px-4 font-sans text-xs text-slate-400">
+                Engajamento prioritário contínuo até o restabelecimento do serviço ou aplicação de contorno homologado.
+              </td>
+            </tr>
+            <tr>
+              <td class="py-4 px-4 font-semibold text-amber-400 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-amber-400"></span> Severidade 2 (Alta)
+              </td>
+              <td class="py-4 px-4 font-sans text-xs text-slate-300">
+                Degradação severa de desempenho, perda de redundância em links de rede ou falha em nó secundário de cluster sem parada total do usuário final.
+              </td>
+              <td class="py-4 px-4 text-cyan-400 font-bold">&lt; 1 a 2 horas</td>
+              <td class="py-4 px-4 font-sans text-xs text-slate-400">
+                Diagnóstico de gargalos, troubleshooting de rotas e mitigação antes do horário de pico.
+              </td>
+            </tr>
+            <tr>
+              <td class="py-4 px-4 font-semibold text-blue-400 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-blue-400"></span> Severidade 3 (Média)
+              </td>
+              <td class="py-4 px-4 font-sans text-xs text-slate-300">
+                Problemas pontuais afetando poucos colaboradores, dúvidas de configuração, ajustes em regras de firewall não impeditivas ou alertas preventivos do Wazuh/PRTG.
+              </td>
+              <td class="py-4 px-4 text-cyan-400 font-bold">&lt; 4 horas</td>
+              <td class="py-4 px-4 font-sans text-xs text-slate-400">
+                Atendimento durante a janela comercial padrão com registro detalhado no histórico de mudanças.
+              </td>
+            </tr>
+            <tr>
+              <td class="py-4 px-4 font-semibold text-slate-400 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-slate-400"></span> Severidade 4 (Baixa)
+              </td>
+              <td class="py-4 px-4 font-sans text-xs text-slate-300">
+                Solicitações de melhoria planejada, novos cadastros de usuários, emissão de relatórios de auditoria e propostas de arquitetura.
+              </td>
+              <td class="py-4 px-4 text-cyan-400 font-bold">&lt; 8 a 24 horas</td>
+              <td class="py-4 px-4 font-sans text-xs text-slate-400">
+                Planejamento em sprint ou fila de evolução contínua da infraestrutura.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- PROTOCOLOS DE CONTINUIDADE -->
+    <div class="grid md:grid-cols-3 gap-6 mb-16">
+      
+      <div class="p-6 rounded-xl bg-slate-900/30 border border-slate-800">
+        <div class="w-10 h-10 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center mb-4">
+          <i data-lucide="shield-alert" class="w-5 h-5"></i>
+        </div>
+        <h3 class="text-base font-bold text-white mb-2">Janelas Homologadas & Rollback</h3>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          Nenhuma alteração estrutural (firmware de firewall, patches de segurança de kernel, migração de contas) é executada sem plano prévio de contingência e reversão imediata (Rollback Plan).
+        </p>
+      </div>
+
+      <div class="p-6 rounded-xl bg-slate-900/30 border border-slate-800">
+        <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4">
+          <i data-lucide="refresh-cw" class="w-5 h-5"></i>
+        </div>
+        <h3 class="text-base font-bold text-white mb-2">Testes de Restauração Periódicos</h3>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          Backup só é válido quando testado. Realizamos simulações de restauração bare-metal e recuperação granular de arquivos via Acronis para garantir que a cópia esteja 100% íntegra.
+        </p>
+      </div>
+
+      <div class="p-6 rounded-xl bg-slate-900/30 border border-slate-800">
+        <div class="w-10 h-10 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-4">
+          <i data-lucide="lock" class="w-5 h-5"></i>
+        </div>
+        <h3 class="text-base font-bold text-white mb-2">Sigilo & NDA Compulsório</h3>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          Todas as informações, credenciais administrativas, topologias e diagnósticos operacionais são tratadas com sigilo absoluto sob Acordo de Não Divulgação (NDA) e cofres de senhas com MFA.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- CTA FOOTER -->
+    <div class="p-8 rounded-2xl bg-slate-900/60 border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div>
+        <h3 class="text-lg font-bold text-white">Precisa de um plano de SLA personalizado para sua empresa?</h3>
+        <p class="text-xs text-slate-400 mt-1">Adequamos o acordo de atendimento às exigências de conformidade do seu negócio.</p>
+      </div>
+      <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20sobre%20SLA%20e%20continuidade%20com%20a%20SON%20SOLUTION" target="_blank" class="px-6 py-3 rounded-lg text-xs font-semibold bg-cyan-500 hover:bg-cyan-400 text-black transition flex items-center gap-2 shrink-0">
+        <i data-lucide="message-square" class="w-4 h-4"></i>
+        <span>Solicitar Acordo de Atendimento</span>
+      </a>
+    </div>
+
+  </main>
+
+  <footer class="border-t border-slate-900 py-8 text-center text-xs text-slate-400 font-mono">
+    &copy; 2026 SON SOLUTIONS. Governança e Alta Disponibilidade em TI.
+  </footer>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
