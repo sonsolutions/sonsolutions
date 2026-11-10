@@ -73,9 +73,13 @@
           <span>Matriz de SLA & Continuidade</span>
           <i data-lucide="arrow-right" class="w-3 h-3 text-slate-500"></i>
         </a>
-        <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20gostaria%20de%20um%20diagn%C3%B3stico%20de%20infraestrutura%20com%20a%20SON%20SOLUTIONS" target="_blank" class="text-emerald-400 hover:text-emerald-300 transition flex items-center gap-1.5 font-medium">
+        <a href="mailto:son.rogerio@outlook.com" class="text-slate-400 hover:text-cyan-400 transition flex items-center gap-1.5">
+          <i data-lucide="mail" class="w-3.5 h-3.5 text-cyan-400"></i>
+          <span>son.rogerio@outlook.com</span>
+        </a>
+        <a href="https://wa.me/5511996304132?text=Ol%C3%A1%2C%20gostaria%20de%20um%20diagn%C3%B3stico%20de%20infraestrutura%20com%20a%20SON%20SOLUTIONS" target="_blank" class="text-emerald-400 hover:text-emerald-300 transition flex items-center gap-1.5 font-medium">
           <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
-          <span>WhatsApp Direto</span>
+          <span>WhatsApp: (11) 99630-4132</span>
         </a>
       </div>
     </div>
@@ -200,6 +204,10 @@
         <span class="hover:text-white transition">Microsoft Azure</span>
         <span class="text-slate-700">·</span>
         <span class="hover:text-white transition">Microsoft 365 / Entra ID</span>
+        <span class="text-slate-700">·</span>
+        <span class="hover:text-cyan-400 text-slate-200 transition">Migração de E-mails</span>
+        <span class="text-slate-700">·</span>
+        <span class="hover:text-cyan-400 text-slate-200 transition">Hospedagem de Sites</span>
         <span class="text-slate-700">·</span>
         <span class="hover:text-white transition">Fortinet FortiGate</span>
         <span class="text-slate-700">·</span>
@@ -503,10 +511,21 @@
 
   <!-- FOOTER MINIMALISTA -->
   <footer class="border-t border-white/[0.06] bg-[#05070B] py-12 px-6 text-xs text-slate-500">
-    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
       
-      <div class="flex items-center gap-3">
+      <div class="flex flex-col sm:flex-row items-center gap-4">
         <img src="assets/logo_dark.png" alt="SON SOLUTIONS" class="h-8 w-auto object-contain">
+        <span class="hidden sm:inline text-slate-700">|</span>
+        <div class="flex flex-wrap items-center gap-4 text-xs font-mono">
+          <a href="mailto:son.rogerio@outlook.com" class="text-slate-400 hover:text-cyan-400 transition flex items-center gap-1.5">
+            <i data-lucide="mail" class="w-3.5 h-3.5 text-cyan-400"></i>
+            <span>son.rogerio@outlook.com</span>
+          </a>
+          <a href="https://wa.me/5511996304132" target="_blank" class="text-emerald-400 hover:text-emerald-300 transition flex items-center gap-1.5">
+            <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
+            <span>(11) 99630-4132</span>
+          </a>
+        </div>
       </div>
 
       <div class="flex items-center gap-6 font-mono text-[11px]">
@@ -571,7 +590,7 @@
         return;
       }
       const rawText = preview.textContent;
-      const url = `https://wa.me/?text=${encodeURIComponent(rawText)}`;
+      const url = `https://wa.me/5511996304132?text=${encodeURIComponent(rawText)}`;
       window.open(url, '_blank');
     });
   </script>
